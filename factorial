@@ -1,0 +1,15 @@
+//Find Factorial of a Number:
+#include <stdio.h>
+int main() {
+    printf("Name: Divyadharshini\nReg no: 192324031\n");
+    int n,fact=1;
+    printf("Enter the number: ");
+    scanf("%d", &n);
+    int temp=n;
+    while(temp>=1){
+    	fact=fact*temp;
+    	temp--;
+	}
+	printf("\nThe factorial of %d is %d",n,fact);
+    return 0;
+}
