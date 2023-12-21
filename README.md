@@ -9,3 +9,6 @@ Day 1:
 8) linear serch of array
 9) binary serch of array
 10) factorial using recurssion
+day 2:
+1) Insert a new numb in array
+2) Delet a number in an array
