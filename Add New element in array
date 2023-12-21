@@ -1,5 +1,6 @@
 #include<stdio.h>
 int main(){
+     printf("Name: Divyadharshini\nRegister No:192324031");
 	int pos, n, x, i;
 	printf("Enter the size of arr: ");
 	scanf("%d", &n);
