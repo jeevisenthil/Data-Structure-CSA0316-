@@ -18,6 +18,7 @@ day 2:
 4) Find the Factorial of a given number using recursion
 5) Binary Seach
 6) Linear Search
+7) Check the string is valide or not
 
 Day 3:
 1) Linked List Operation
