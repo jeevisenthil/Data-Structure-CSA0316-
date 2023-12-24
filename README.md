@@ -9,7 +9,7 @@ Day 1:
 8) linear serch of array
 9) binary serch of array
 10) factorial using recurssion
-11) 
+11) 5th Itratted array
 day 2:
 1) Insert a new numb in array
 2) Delet a number in an array
@@ -20,3 +20,8 @@ day 2:
 
 Day 3:
 1) Linked List Operation
+2)  To determine whether a given singly linked list is a palindrome
+3)  To merge two sorted singly linked lists into a single sorted linked list
+4)   Print no of nodes in the given linked list
+5)   intersect Linked List
+6)   Reverse a Linked List
