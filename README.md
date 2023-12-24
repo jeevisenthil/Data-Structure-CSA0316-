@@ -25,4 +25,3 @@ Day 3:
 3)  To merge two sorted singly linked lists into a single sorted linked list
 4)   Print no of nodes in the given linked list
 5)   intersect Linked List
-6)   Reverse a Linked List
