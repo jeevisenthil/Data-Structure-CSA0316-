@@ -13,3 +13,8 @@ Day 1:
 day 2:
 1) Insert a new numb in array
 2) Delet a number in an array
+3) Binary Seach
+4) Linear Search
+
+Day 3:
+1) Linked List Operation
