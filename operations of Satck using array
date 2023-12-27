@@ -30,6 +30,7 @@
 					}
 					case 3:
 					{
+						
 							peek();
 						break;
 					}
@@ -63,6 +64,7 @@
 			scanf("%d", &data);
 			top=top+1;
 			stack[top]=data;
+			printf("%d\n", data);
 		}
 		
 	}
@@ -73,12 +75,13 @@
 		{
 			top=top-1;
 			stack[top]=data;
+			printf("%d\n", data);
 		}
 		
 	}
 	void peek()
 	{
-		return top;
+		printf("%d", top);
 	}
 	void display()
 	{
