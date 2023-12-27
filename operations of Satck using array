@@ -1,0 +1,93 @@
+#include<stdio.h>
+	int top=-1, stack[100], i, n, choice=0;
+	void push();
+	void pop();
+	void peek();
+	void display();
+	void main()
+	{
+		printf("Enetr The Number of Element in the Stack: ");
+		scanf("%d", &n);
+		printf("\n\n");
+		
+		while(choice!=5)
+	 {
+		printf("Choose One Option ");
+		printf("\n1.)Push()\n2.)Pop()\n3.)Peek\n4.)Display\n5.)Exit\n");
+		printf("Enter The Choice: ");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1:
+				{
+					push();
+				break;
+				}
+				case 2:
+					{
+						pop();
+						break;
+					}
+					case 3:
+					{
+							peek();
+						break;
+					}
+					case 4:
+						{
+							display();
+							break;
+						}
+						case 5:
+							{
+								printf("Exit..");
+								break;
+							}
+							default:
+								{
+									printf("Enter The Valid Numb ");
+									break;
+								}
+						
+		};
+	 }
+	}
+	void push()
+	{
+		int data;
+		if(top==n)
+		printf("Overflow");
+		else
+		{
+			printf("Enter The Value: ");
+			scanf("%d", &data);
+			top=top+1;
+			stack[top]=data;
+		}
+		
+	}
+	void pop()
+	{
+		int data;
+		if(top!=-1)
+		{
+			top=top-1;
+			stack[top]=data;
+		}
+		
+	}
+	void peek()
+	{
+		return top;
+	}
+	void display()
+	{
+		for(i=top; i>=0; i--)
+		{
+			printf("%d\n", stack[i]);
+		}
+		if(top==-1)
+		{
+		printf("Stack is Empty");
+    	}
+	}
