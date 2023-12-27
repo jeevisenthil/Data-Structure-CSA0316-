@@ -6,6 +6,7 @@
 	void display();
 	void main()
 	{
+                printf("Name:Divyadharshini\nRegno:192324031");
 		printf("Enetr The Number of Element in the Stack: ");
 		scanf("%d", &n);
 		printf("\n\n");
