@@ -1,0 +1,106 @@
+//Write a function to convert an infix expression to postfix notation.
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include <ctype.h>
+
+struct node {
+    char data;
+    struct node* next;
+}*n;
+
+void push(struct node** top, char data) {
+    n  = (struct node*)malloc(sizeof(struct node));
+    if (n  == NULL) {
+        printf("Memory allocation failed\n");
+        exit(0);
+    }
+    n ->data = data;
+    n ->next = *top;
+    *top = n ;
+}
+
+char pop(struct node** top) {
+    if (*top == NULL) {
+        printf("Stack underflow\n");
+        exit(0);
+    }
+    struct node* temp = *top;
+    char data = temp->data;
+    *top = temp->next;
+    free(temp);
+    return data;
+}
+
+char peek(struct node* top) {
+    if (top == NULL) {
+        return '\0'; 
+    }
+    return top->data;
+}
+
+int isoperator(char ch) {
+    return (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^');
+}
+
+int precedence(char ch) {
+    switch (ch) {
+        case '+':
+        case '-':
+            return 1;
+        case '*':
+        case '/':
+            return 2;
+        case '^':
+            return 3;
+        default:
+            return 0; 
+    }
+}
+
+void check(char* string) {
+    struct node* top= NULL;
+    printf("Postfix Expression: ");
+
+    while (*string) {
+        if (isalnum(*string)) {
+            printf("%c", *string);
+        } else if (*string == '(') {
+            push(&top, '(');
+        } else if (*string == ')') {
+            while (peek(top) != '(') {
+                printf("%c", pop(&top));
+            }
+            pop(&top); 
+        } else if (isoperator(*string)) {
+            while (precedence(*string) <= precedence(peek(top)) && peek(top) != '(') {
+                printf("%c", pop(&top));
+            }
+            push(&top, *string);
+        } else if (*string != ' ') {
+            printf("Invalid character in infix expression: %c\n", *string);
+            exit(0);
+        }
+
+        string++;
+    }
+
+    while (top!= NULL) {
+        if (peek(top) == '(') {
+            printf("Unmatched '(' in infix expression\n");
+            exit(0);
+        }
+        printf("%c", pop(&top));
+    }
+
+    printf("\n");
+}
+int main() {
+    printf("Name:Divyadharshini\nReg No: 192324031\n");
+    char string[100];
+    printf("Enter infix expression:");
+    scanf("%[^\n]",string);
+    check(string);
+    return 0;
+}
