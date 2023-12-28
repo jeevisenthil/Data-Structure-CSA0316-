@@ -1,0 +1,106 @@
+//Write a function to evaluate a given postfix expression. 
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+struct node {
+    int data;
+    struct node *next;
+} *n;
+
+void push(struct node **top, int data) {
+    n = (struct node *)malloc(sizeof(struct node));
+    n->data = data;
+    n->next = NULL;
+    if (*top == NULL) {
+        *top = n;
+    } else {
+        n->next = *top;
+        *top = n;
+    }
+}
+
+int pop(struct node **top) {
+    if (*top == NULL) {
+        fprintf(stderr, "Stack underflow\n");
+        exit(EXIT_FAILURE);
+    }
+    struct node *t = *top;
+    int temp = t->data;
+    *top = t->next;
+    free(t);
+    return temp;
+}
+
+void check(char *string) {
+    struct node *top = NULL;
+    int operand;
+
+    while (*string) {
+        if (isdigit(*string)) {
+            operand = 0;
+            while (isdigit(*string)) {
+                operand = operand * 10 + (*string - '0');
+                string++;
+            }
+            push(&top, operand);
+        } else if (*string == ' ') {
+            
+            string++;
+        } else {
+        	struct node* t;
+        	t=top->next;
+        	if(top==NULL||t==NULL){
+        		printf("\nInvalid expression");
+        		return;
+			}
+            int operand2 = pop(&top);
+            int operand1 = pop(&top);
+            int operand3;
+
+            switch (*string) {
+                case '+':
+                    operand3 = operand1 + operand2;
+                    break;
+                case '-':
+                    operand3 = operand1 - operand2;
+                    break;
+                case '*':
+                    operand3 = operand1 * operand2;
+                    break;
+                case '/':
+                    operand3 = operand1 / operand2;
+                    break;
+                case '%':
+                    operand3 = operand1 % operand2;
+                    break;
+                case '^':
+                    operand3 = operand1 ^ operand2;
+                    break;
+                default:
+                    printf("\nInvalid operator");
+                    exit(EXIT_FAILURE);
+            }
+
+            push(&top, operand3);
+            string++;
+        }
+    }
+
+    if (top == NULL) {
+        printf("Invalid expression\n");
+        exit(EXIT_FAILURE);
+    }
+
+    int ans = pop(&top);
+    printf("\nThe Answer is %d\n", ans);
+}
+
+int main() {
+    printf("Name:Divydharshini\nReg No: 192324031\n");
+    char string[100];
+    printf("Enter the expression:");
+    scanf("%[^\n]",string);
+    check(string);
+    return 0;
+}
