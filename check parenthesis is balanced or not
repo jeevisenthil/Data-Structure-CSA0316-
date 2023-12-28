@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    char data;
+    struct node *next;
+} *n;
+
+void push(struct node **top, char data) {
+    n = (struct node *)malloc(sizeof(struct node));
+    n->data = data;
+    n->next = NULL;
+    if (*top == NULL) {
+        *top = n;
+    } else {
+        n->next = *top;
+        *top = n;
+    }
+}
+
+char pop(struct node **top) {
+    if (*top == NULL) {
+        fprintf(stderr, "Stack underflow\n");
+        exit(EXIT_FAILURE);
+    }
+    struct node *t = *top;
+    char temp = t->data;
+    *top = t->next;
+    free(t);
+    return temp;
+}
+
+void check(char *string) {
+    struct node *top = NULL; 
+
+    while (*string) {
+        if (*string == '(' || *string == '{' || *string == '[') {
+            push(&top, *string);
+        } else if (*string == ')' || *string == '}' || *string == ']') {
+            if (top == NULL) {
+                printf("\nUnbalanced");
+                return;
+            }
+            char popped = pop(&top);
+            if (*string == ')' && popped != '(' || *string == '}' && popped != '{' || *string == ']' && popped != '[') {
+                printf("\nUnbalanced");
+                return;
+            }
+        }
+        string++;
+    }
+
+    if (top == NULL) {
+        printf("\nBalanced");
+    } else {
+        printf("\nUnbalanced");
+    }
+}
+
+int main() {
+    printf("Name:Divyadharshini\nReg No: 192324031\n");
+    char string[] = "{[]}";
+    check(string);
+    return 0;
+}
