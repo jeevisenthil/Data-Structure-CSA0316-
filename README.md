@@ -58,4 +58,12 @@ Day 8:
 Day 9:
 1) Create AVL tree and perform insertion and deletion
 
+Day 10:
+1) Implement of Red Black tree [delete and insert data]
+2) Implementation of S-play tree[delete and insert data]
+
+Day 11:
+1) Implementation of B tree perform insertion
+2) implementation of TRIE tree perform insertion
+
 
