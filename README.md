@@ -66,4 +66,7 @@ Day 11:
 1) Implementation of B tree perform insertion
 2) implementation of TRIE tree perform insertion
 
-
+Day 12:
+1) C Program to perform Hashing with all collision resolving techniques
+2) C Program for Min Heap and Max Heap
+3) C Program to perform Heap sort ascending and Descending order
