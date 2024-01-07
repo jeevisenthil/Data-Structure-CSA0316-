@@ -117,13 +117,13 @@ int main() {
 	
     struct HashTable* hashTable = createHashTable();
 
-    insertSeparateChaining(hashTable, 12);
-    insertSeparateChaining(hashTable, 23);
-    insertSeparateChaining(hashTable, 34);
-    insertSeparateChaining(hashTable, 44);
-    insertSeparateChaining(hashTable, 56);
-    insertSeparateChaining(hashTable, 69);
-    insertSeparateChaining(hashTable, 79);
+    insertSeparateChaining(hashTable, 12, "John");
+    insertSeparateChaining(hashTable, 23, "Doe");
+    insertSeparateChaining(hashTable, 34, "Alice");
+    insertSeparateChaining(hashTable, 44, "Bob");
+    insertSeparateChaining(hashTable, 56, "Charlie");
+    insertSeparateChaining(hashTable, 69, "Eve");
+    insertSeparateChaining(hashTable, 79, "Frank");
 
     printHashTable(hashTable);
 
